@@ -1,0 +1,32 @@
+---
+title: "HW1"
+author: "郭書瑋 會計四 Ｂ02702052"
+date: "March 29, 2017"
+output: html_document
+---
+```{r}
+data <- read.csv(file = "/Users/AlbertMac/Documents/CODING/R/HW1/students2.csv")
+knitr::kable(data)
+```
+
+#1
+```{r}
+X <- c(max(data$Management), min(data$Management), median(data$Management))
+names(X) <- c("maximum", "minimum" ,"median")
+X
+```
+
+#2
+```{r}
+table1 <- data.frame(data$Year, data$Art, data$Social, data$Engineering, data$Management)
+table1 <- table1[57:71,]
+names(table1) <- c("Year", "Arts", "Social Science", "Engineering", "Management")
+knitr::kable(table1)
+```
+
+#3
+```{r}
+table1$Total <- rowSums(table1[,2:5])
+table1$Avg <- rowMeans(table1[,2:5])
+knitr::kable(table1)
+```
