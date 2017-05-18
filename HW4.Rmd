@@ -1,0 +1,25 @@
+---
+title: "HW4"
+author: "會計四 郭書瑋 B02702052"
+date: "May 18, 2017"
+output: html_document
+---
+
+本次作業將近期「法國」與「英國」的「十年期公債殖利率」進行回歸分析
+
+Code與回歸分析結果如下
+
+```{r}
+TB = read.csv('EuRate.csv')
+RateCompare = lm(Fr ~ UK, data = TB)
+summary(RateCompare)
+```
+
+繪圖如下
+
+```{r, echo=FALSE}
+plot(Fr ~ UK, data = TB)
+abline(RateCompare)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
